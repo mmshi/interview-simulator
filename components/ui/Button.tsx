@@ -6,10 +6,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const VARIANT_CLASSES: Record<NonNullable<ButtonProps["variant"]>, string> = {
   primary:
-    "bg-indigo-500 hover:bg-indigo-400 text-white shadow-lg shadow-indigo-500/20 disabled:bg-slate-700 disabled:shadow-none",
+    "bg-indigo-600 hover:bg-indigo-500 text-white shadow-sm disabled:bg-slate-300 disabled:shadow-none",
   secondary:
-    "bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700 disabled:opacity-50",
-  ghost: "bg-transparent hover:bg-slate-800 text-slate-300 disabled:opacity-50",
+    "bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 disabled:opacity-50",
+  ghost: "bg-transparent hover:bg-slate-100 text-slate-600 disabled:opacity-50",
 };
 
 export function Button({ variant = "primary", className = "", ...props }: ButtonProps) {

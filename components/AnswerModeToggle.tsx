@@ -7,7 +7,7 @@ interface AnswerModeToggleProps {
 
 export function AnswerModeToggle({ mode, onChange }: AnswerModeToggleProps) {
   return (
-    <div className="inline-flex rounded-lg border border-slate-700 bg-slate-900 p-1">
+    <div className="inline-flex rounded-lg border border-slate-200 bg-slate-100 p-1">
       {(["free-text", "multiple-choice"] as const).map((option) => (
         <button
           key={option}
@@ -15,8 +15,8 @@ export function AnswerModeToggle({ mode, onChange }: AnswerModeToggleProps) {
           onClick={() => onChange(option)}
           className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
             mode === option
-              ? "bg-indigo-500 text-white"
-              : "text-slate-400 hover:text-slate-200"
+              ? "bg-indigo-600 text-white"
+              : "text-slate-500 hover:text-slate-700"
           }`}
         >
           {option === "free-text" ? "Write my answer" : "Multiple choice"}

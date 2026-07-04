@@ -47,8 +47,8 @@ export default function PracticePage() {
   if (!question) {
     return (
       <main className="mx-auto flex max-w-2xl flex-1 flex-col items-center justify-center gap-4 px-4 py-16 text-center">
-        <h1 className="text-2xl font-semibold text-white">Session complete</h1>
-        <p className="text-slate-400">You&apos;ve answered all the questions in this practice set.</p>
+        <h1 className="text-2xl font-semibold text-slate-900">Session complete</h1>
+        <p className="text-slate-500">You&apos;ve answered all the questions in this practice set.</p>
         <Button onClick={() => dispatch({ type: "RESET" })}>Start a new session</Button>
       </main>
     );
@@ -134,7 +134,7 @@ export default function PracticePage() {
             />
           )}
 
-          {submitError && <p className="text-sm text-rose-400">{submitError}</p>}
+          {submitError && <p className="text-sm text-rose-600">{submitError}</p>}
 
           <Button
             disabled={!canSubmit || state.status === "submitting-answer"}

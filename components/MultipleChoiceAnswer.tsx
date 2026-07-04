@@ -16,8 +16,8 @@ export function MultipleChoiceAnswer({ options, selectedOptionId, onSelect }: Mu
           onClick={() => onSelect(option.id)}
           className={`rounded-lg border p-3 text-left text-sm transition-colors ${
             selectedOptionId === option.id
-              ? "border-indigo-500 bg-indigo-500/10 text-indigo-100"
-              : "border-slate-700 bg-slate-900 text-slate-300 hover:border-slate-600"
+              ? "border-indigo-500 bg-indigo-50 text-indigo-900"
+              : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
           }`}
         >
           {option.text}

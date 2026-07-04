@@ -14,7 +14,7 @@ export function ProgressHeader({ currentIndex, total, category, difficulty }: Pr
         <Badge tone="accent">{category}</Badge>
         <Badge tone="neutral">{difficulty}</Badge>
       </div>
-      <span className="text-sm text-slate-400">
+      <span className="text-sm text-slate-500">
         Question {Math.min(currentIndex + 1, total)} of {total}
       </span>
     </div>

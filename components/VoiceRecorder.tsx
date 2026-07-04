@@ -181,7 +181,7 @@ export function VoiceRecorder({ onTranscript }: VoiceRecorderProps) {
 
   if (status === "unsupported") {
     return (
-      <p className="text-xs text-slate-500">
+      <p className="text-xs text-slate-400">
         Voice input isn&apos;t supported in this browser. Try Chrome or Edge, or write your answer above.
       </p>
     );
@@ -189,12 +189,12 @@ export function VoiceRecorder({ onTranscript }: VoiceRecorderProps) {
 
   if (status === "recording") {
     return (
-      <div className="flex flex-wrap items-center gap-3 rounded-lg border border-rose-500/30 bg-rose-500/5 p-3">
+      <div className="flex flex-wrap items-center gap-3 rounded-lg border border-rose-200 bg-rose-50 p-3">
         <span className="relative flex h-3 w-3">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-500 opacity-75" />
           <span className="relative inline-flex h-3 w-3 rounded-full bg-rose-500" />
         </span>
-        <span className="text-sm font-medium text-rose-300">Recording {formatDuration(elapsedMs)}</span>
+        <span className="text-sm font-medium text-rose-700">Recording {formatDuration(elapsedMs)}</span>
         <Button
           type="button"
           variant="secondary"
@@ -209,14 +209,14 @@ export function VoiceRecorder({ onTranscript }: VoiceRecorderProps) {
 
   if (status === "preview" && previewUrl) {
     return (
-      <div className="space-y-3 rounded-lg border border-slate-700 bg-slate-900 p-3">
+      <div className="space-y-3 rounded-lg border border-slate-200 bg-slate-50 p-3">
         <audio controls src={previewUrl} className="w-full" />
         {transcriptPreview ? (
-          <p className="text-xs text-slate-400">
-            Transcript preview: <span className="text-slate-200">{transcriptPreview}</span>
+          <p className="text-xs text-slate-500">
+            Transcript preview: <span className="text-slate-800">{transcriptPreview}</span>
           </p>
         ) : (
-          <p className="text-xs text-amber-400">
+          <p className="text-xs text-amber-600">
             No transcript was captured. You can still use the recording, then type your answer manually.
           </p>
         )}
@@ -246,24 +246,24 @@ export function VoiceRecorder({ onTranscript }: VoiceRecorderProps) {
       </Button>
 
       {!hasInteracted && status === "idle" && (
-        <span className="text-xs text-slate-500">You can also answer by voice</span>
+        <span className="text-xs text-slate-400">You can also answer by voice</span>
       )}
 
       {status === "too-short" && (
-        <span className="text-xs text-amber-400">
+        <span className="text-xs text-amber-600">
           That recording was too short. Please try again and speak for at least a second.
         </span>
       )}
 
       {status === "denied" && (
-        <span className="text-xs text-rose-400">
+        <span className="text-xs text-rose-600">
           Microphone access is blocked. Enable it via the site permissions icon in your address bar, then
           try again.
         </span>
       )}
 
       {status === "unavailable" && (
-        <span className="text-xs text-rose-400">
+        <span className="text-xs text-rose-600">
           Couldn&apos;t access a microphone. Check that one is connected and not in use by another app.
         </span>
       )}

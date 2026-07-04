@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Spinner } from "@/components/ui/Spinner";
+import { CategoryIcon } from "@/components/ui/CategoryIcon";
 import { JobDescriptionInput } from "@/components/JobDescriptionInput";
 import { useSessionDispatch } from "@/store/SessionContext";
 import type { Difficulty, PracticeMode, Question, QuestionCategory } from "@/lib/types";
@@ -68,16 +69,16 @@ export function LandingForm() {
   return (
     <div className="mx-auto flex max-w-2xl flex-col gap-6">
       <div className="text-center">
-        <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+        <h1 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
           Interview Simulator
         </h1>
-        <p className="mt-2 text-slate-400">
+        <p className="mt-2 text-slate-500">
           Practice behavioral, case, and situational-judgment questions with instant AI feedback.
         </p>
       </div>
 
       <Card>
-        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-400">
+        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500">
           Question type
         </h2>
         <div className="grid gap-3 sm:grid-cols-3">
@@ -88,17 +89,18 @@ export function LandingForm() {
               onClick={() => setCategory(c.value)}
               className={`rounded-lg border p-3 text-left transition-colors ${
                 category === c.value
-                  ? "border-indigo-500 bg-indigo-500/10"
-                  : "border-slate-700 bg-slate-900 hover:border-slate-600"
+                  ? "border-indigo-500 bg-indigo-50"
+                  : "border-slate-200 bg-white hover:border-slate-300"
               }`}
             >
-              <div className="text-sm font-medium text-slate-100">{c.label}</div>
-              <div className="mt-1 text-xs text-slate-400">{c.description}</div>
+              <CategoryIcon category={c.value} className="mb-2" />
+              <div className="text-sm font-medium text-slate-900">{c.label}</div>
+              <div className="mt-1 text-xs text-slate-500">{c.description}</div>
             </button>
           ))}
         </div>
 
-        <h2 className="mb-3 mt-6 text-sm font-semibold uppercase tracking-wide text-slate-400">
+        <h2 className="mb-3 mt-6 text-sm font-semibold uppercase tracking-wide text-slate-500">
           Difficulty
         </h2>
         <div className="flex gap-2">
@@ -109,8 +111,8 @@ export function LandingForm() {
               onClick={() => setDifficulty(d)}
               className={`flex-1 rounded-lg border px-3 py-2 text-sm font-medium capitalize transition-colors ${
                 difficulty === d
-                  ? "border-indigo-500 bg-indigo-500/10 text-indigo-200"
-                  : "border-slate-700 bg-slate-900 text-slate-300 hover:border-slate-600"
+                  ? "border-indigo-500 bg-indigo-50 text-indigo-700"
+                  : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
               }`}
             >
               {d}
@@ -118,7 +120,7 @@ export function LandingForm() {
           ))}
         </div>
 
-        <h2 className="mb-3 mt-6 text-sm font-semibold uppercase tracking-wide text-slate-400">
+        <h2 className="mb-3 mt-6 text-sm font-semibold uppercase tracking-wide text-slate-500">
           Job description mode
         </h2>
         <div className="mb-3 flex gap-2">
@@ -130,8 +132,8 @@ export function LandingForm() {
             }}
             className={`flex-1 rounded-lg border px-3 py-2 text-sm font-medium transition-colors ${
               mode === "generic"
-                ? "border-indigo-500 bg-indigo-500/10 text-indigo-200"
-                : "border-slate-700 bg-slate-900 text-slate-300 hover:border-slate-600"
+                ? "border-indigo-500 bg-indigo-50 text-indigo-700"
+                : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
             }`}
           >
             General practice
@@ -141,8 +143,8 @@ export function LandingForm() {
             onClick={() => setMode("job-description")}
             className={`flex-1 rounded-lg border px-3 py-2 text-sm font-medium transition-colors ${
               mode === "job-description"
-                ? "border-indigo-500 bg-indigo-500/10 text-indigo-200"
-                : "border-slate-700 bg-slate-900 text-slate-300 hover:border-slate-600"
+                ? "border-indigo-500 bg-indigo-50 text-indigo-700"
+                : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
             }`}
           >
             Tailor to a job posting
@@ -158,7 +160,7 @@ export function LandingForm() {
         )}
       </Card>
 
-      {error && <p className="text-center text-sm text-rose-400">{error}</p>}
+      {error && <p className="text-center text-sm text-rose-600">{error}</p>}
 
       <Button
         type="button"
